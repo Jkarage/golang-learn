@@ -79,3 +79,29 @@ The only legal comparison in slice is to nil. To check if a slice is empty use l
 
 append() deals with size realocation of slices.
 
+### Maps
+
+An unordered collection of key, value pairs. All of the keys in the given map are of the same type, and values are of the same type. But the key and values can be of different types.
+
+The Key type of map must be comparable, so that it a map can test if a key given is equal to one already within it.
+
+Map element is not a variable and can not be addressed.
+
+Main reason we can not take the adress of map element is growing the map may cause rehashing of existing elements to another storage locations thus potential invalidating the address.
+
+The zero value of a map is nil, That is a reference to no hash table at all.
+
+
+### Structs
+
+An aggregate type that groups together zero or more named values of arbitrary types as a single entity. Each value is called a `field`
+
+Field order is significant to type identity.
+
+The name of a struct type is exported if it starts wiith a Capital letter.
+A struct may contain a mixture of exported and non exported fields.
+
+If all fields of a struct are comparable structs are comparable.
+
+comparable structs like any other comparable types can be used a s key in maps.
+

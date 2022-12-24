@@ -11,11 +11,27 @@ func main() {
 	fullName := "Joseph Karage"
 	isCreditable := true
 
-	// Declaring an array
+	// Declaring an array { My friends are immutable }
 	friends := [5]string{"RoseMary", "Khadja", "Fadhili", "Charles", "Caroline"}
 
-	// Declaring a slice
+	// Declaring a slice { Enemies are mutable}
 	enemies := []string{"Wallace", "Mendez"}
 
-	fmt.Println(age, bankBallance, fullName, isCreditable, friends, enemies)
+	// Declaring a map
+	ages := make(map[string]int)
+	fmt.Println(age, bankBallance, fullName, isCreditable, friends, enemies, ages)
+
+	// Declaring a struct
+	type Phone struct {
+		phone       int
+		countryCode int
+	}
+
+	type Profile struct {
+		username string
+		age      int
+		email    string
+		Phone
+	}
+
 }
