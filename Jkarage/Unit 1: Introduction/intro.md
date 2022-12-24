@@ -20,7 +20,7 @@ Go doesn't require semicolons at the end of statements(go takes care of it),exce
 
 Functions and other package-level entities may be declared in any order.
 
-Naming in go functions, variables, constants, types and packages follow a simple rule. 
+Naming in go functions, variables, constants, types and packages follow a simple rule.
 
 A name begins with a letter(unicode letter) or an underscore and may be foollwed by a number of letters, digits or underscores.
 
@@ -28,4 +28,4 @@ case matters `jose` and `Jose` are two different names.
 
 predeclared names like `new` can be redeclared in your program as they are not keywords. But beware of the confusion.
 
-Stylistically go programmers use camel case naming convention
+Stylistically go programmers use camel case naming convention.
