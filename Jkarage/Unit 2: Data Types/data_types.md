@@ -27,3 +27,55 @@ Go also provides two sizes of complex number complex32 and complex64.
 
 ### Booleans
 
+A value of type bool has only two possible values `true` and `false`.
+There is no implicit conversion from bool to numeric value like 0 or 1
+
+### Strings
+
+Strings are an immutable sequence of bytes.(A string is an `array` of bytes)
+
+The len() function returns the number of bytes (not runes) in a string.
+Attempting to access a byte outside a range results in a panic.
+
+The i-th byte of a string may not necessarilly be the i-th character of a string because non-ascii characters may take more than two bytes.
+
+The substring s[i:j] creates a new string consisting of characters from i upto j(not inclusive).
+
+strings may be compared with with comparison operators like == and <;The comparison is done byte by byte.
+
+Escape sequences can be used in double quoted strings only.
+
+## Aggregate Types
+
+These includes arrays and structs.
+
+### Array
+
+Array is a fixed length sequence of zero  or more elements of a particular type.
+
+By defaults elements of a new array variable are set to zero value of the array elements type.
+
+The sizeof an array is part of its type, so [3]int [4]int are different types.
+
+If an array type is comparable then the array is comparable.
+
+The fixed size property of an array, makes it less used in go, The slice data type overtaking the position.
+
+Passing an array to a function passes it by a copy, Thus no modification can be attained. Unless the pointer to array is passed.
+
+### Slices
+
+Slice is a variable-length sequence whose elements are of the same data type.
+
+Array and slices are intimately connected. A slice gives access to a subsequence (or perhaps all) of the elements of an array which is known as slice's underlying array.
+
+A slice has three properties: a `pointer`,length and capacity.
+
+Due to that passing a slice to a function, assures the function to modify the underlying array, Unlike in Arrays.
+
+Slices are not comparable. Although the standard library provides a highly optimized bytes.Equal function for comparing [] bytes. But for other slices.
+
+The only legal comparison in slice is to nil. To check if a slice is empty use len() function as there are non-nil slices that are empty.
+
+append() deals with size realocation of slices.
+
