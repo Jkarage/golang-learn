@@ -9,7 +9,7 @@ func main() {
 
 	// Using short-declaration syntax{ Alloed inside functions only }
 	fullName := "Joseph Karage"
-	isCreditable := true
+	hasCredit := true
 
 	// Declaring an array { My friends are immutable }
 	friends := [5]string{"RoseMary", "Khadja", "Fadhili", "Charles", "Caroline"}
@@ -19,7 +19,7 @@ func main() {
 
 	// Declaring a map
 	ages := make(map[string]int)
-	fmt.Println(age, bankBallance, fullName, isCreditable, friends, enemies, ages)
+	fmt.Println(age, bankBallance, fullName, hasCredit, friends, enemies, ages)
 
 	// Declaring a struct
 	type Phone struct {
@@ -33,5 +33,4 @@ func main() {
 		email    string
 		Phone
 	}
-
 }
