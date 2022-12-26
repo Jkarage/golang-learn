@@ -91,7 +91,6 @@ Main reason we can not take the adress of map element is growing the map may cau
 
 The zero value of a map is nil, That is a reference to no hash table at all.
 
-
 ### Structs
 
 An aggregate type that groups together zero or more named values of arbitrary types as a single entity. Each value is called a `field`
@@ -103,5 +102,4 @@ A struct may contain a mixture of exported and non exported fields.
 
 If all fields of a struct are comparable structs are comparable.
 
-comparable structs like any other comparable types can be used a s key in maps.
-
+comparable structs like any other comparable types can be used as keys in maps.
