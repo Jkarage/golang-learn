@@ -49,3 +49,27 @@ A function literal is written like a function declaration, but without a func na
 
 Functions declared in this manner have access to the entire lexical block from the outer function declaration.
 
+## Capturing Iterating variables
+
+A closure has accesss to the outer lexical environment, Thus all variables accessed from it are passed as reference (not as value at a particular time) this leads to a bug that if a variable changes during the runtime the closure accessing it might get a value that was not intended to.
+
+## Variadic Functions
+
+Variadic function is the one that can be called with a varying number of arguments.
+
+To declare variadic function the type of the final parameter must be preceded by an elipsis "..."
+
+That indicates that a function may be called with a number of arguments for this type.
+
+Implicitly the caller allocates an array to store the arguments, and passes the slice of the entire array to the function.
+
+Invoking a variadic function when the arguments are already in a slice.
+
+values := []{10, 20, 30}
+func (values...)
+
+## Defered Function Calls
+
+Syntactically, a defer statement is an ordinary function or method call prefixed by the keyword defer.
+
+The function and argument expressions are evaluated when the statement is executed, but the actual call is deferred until the function that contains the defer statement has finished, whether normally, by executing a return statement or falling off the end, or abnormally, by panicking.
