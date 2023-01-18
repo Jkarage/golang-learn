@@ -26,6 +26,17 @@ A name begins with a letter(unicode letter) or an underscore and may be foollwed
 
 case matters `jose` and `Jose` are two different names.
 
+```golang
+    var jose string
+    var Jose string
+```
+
 predeclared names like `new` can be redeclared in your program as they are not keywords. But beware of the confusion.
+
+``` golang
+    func new() string {
+        return fmt.Sprint("A random string")
+    }
+```
 
 Stylistically go programmers use camel case naming convention.
