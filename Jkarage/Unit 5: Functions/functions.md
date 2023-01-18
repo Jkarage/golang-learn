@@ -4,9 +4,11 @@ A function lets us wrap a sequence of statements together as a unit that can be 
 
 ## Function Declarations
 
-func name(parameter-list) (result-list) {
-    body
-}
+``` golang
+    func name(parameter-list) (result-list) {
+        // body
+    }
+```
 
 The parameter-list specifies names and types of function parameters.
 The result-list specifies the types of the values that the function returns.
@@ -21,7 +23,9 @@ However if the arguments contains a reference types like a pointer, slice,maps, 
 
 If you encouneter a function declaration without a body, It is an indication that a function implementation is done in other language other than go.
 
-func Sin(x float64) float64 // implemented in assembly language
+``` golang
+    func Sin(x float64) float64 // implemented in assembly language
+```
 
 ## Recursive Functions
 
@@ -31,11 +35,15 @@ Recursive functions call themselves directly or indirectly.
 
 Functions are first class values in go. Like other values function has types and may be assigned to variables and be passed or returned in a function.
 
-var f func(n int) int
+``` golang
+    var f func(n int) int
+```
 
 A function  value may be called like any other function.
 
+``` golang
 f(3)
+```
 
 The zero value of a function type is nil. Calling a nil function value causes a panic.
 
@@ -65,8 +73,10 @@ Implicitly the caller allocates an array to store the arguments, and passes the 
 
 Invoking a variadic function when the arguments are already in a slice.
 
-values := []{10, 20, 30}
-func (values...)
+``` golang
+    values := []{10, 20, 30}
+    func (values...)
+```
 
 ## Defered Function Calls
 
