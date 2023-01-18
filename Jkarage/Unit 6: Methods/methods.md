@@ -23,10 +23,26 @@ For convention if a method uses pointer receiver, Then all other methods should 
 Named types and pointers to them are the only types that may appear in a
 receiver declaration. Furthermore, to avoid ambiguities, method declarations are not permitted on named types that are themselves pointer types.
 
-type P *int
-func (P) f() { body } // compile error: invalid receiver type
+``` golang
+    type P *int
+    func (P) f() { body } // compile error: invalid receiver type
+```
 
 For simplicity in Go even if a method has apointer receiver, We can just use the normal variable to access it, and go will use the pointer implicitly.
+But the variable must be addressable.
+
+```golang
+package main
+
+type intSet struct{}
+
+func main() {
+intSet{}.String() // Cannot do this (Not addressable)
+}
+
+func (*intSet) String() string
+
+```
 
 We can not use a type literal to access a method, Because there is no way to access the address of the type literal.
 
