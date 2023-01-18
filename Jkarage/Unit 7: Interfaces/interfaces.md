@@ -53,4 +53,4 @@ The empty interface places no demands on the type that implements it. thus we ca
     any = new(bytes.Buffer())
 ```
 
-But now we can do nothing directly to the value it holds since an interface has no methods. 
+But now we can do nothing directly to the value it holds since an interface has no methods.
