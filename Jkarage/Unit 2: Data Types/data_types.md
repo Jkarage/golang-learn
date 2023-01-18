@@ -25,10 +25,21 @@ Floating point numbers are in two sizes float32 and float64.
 
 Go also provides two sizes of complex number complex32 and complex64.
 
+``` golang
+    var i uint32
+    var u int32
+    var p float32
+```
+
 ### Booleans
 
 A value of type bool has only two possible values `true` and `false`.
 There is no implicit conversion from bool to numeric value like 0 or 1
+
+``` golang
+    var isCreditable bool
+    male := true
+```
 
 ### Strings
 
