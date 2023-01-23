@@ -94,7 +94,7 @@ Thus when comparing interface values or aggregate types we must be aware of the 
 You may check the dynamic type of an interface using the `%T` formmatter.
 
 ``` golang
-    resp, _ := http.Get("http:///google.com/")
+    resp, _ := http.Get("http://google.com/")
     fmt.Println("%T",resp.Body)
 ```
 
@@ -103,3 +103,25 @@ Internally fmt uses Reflection to know the dynamic type of the interface.
 ## Caveat: An Interface containing a nil Pointer is Non-nil
 
 A nil interface value containing no value at all is not equal to an interface having a pointer that happens to be nil.
+
+This is because an interface is said to  be nil when the dynamic type is nil, But it may also have a nil pointer regardless. If that is the case some computation may not work as planned theoretically.
+
+``` golang
+    var debug = true
+    var buf *bytes.Buffer
+
+    if debug {
+        buf = new(bytes.Buffer)
+    }
+    f(buf) // subtly incorrect
+
+    func f(w io.Writer) {
+        if w != nil {
+            w.Write([]byte("done!"))
+        }
+    }
+
+```
+
+In the above example, tweaking debug to false will result in panic as the Write method wont accept a nil pointer as the receiver.
+The solution for the above code is to use io.Writer type in the buf declaration.
