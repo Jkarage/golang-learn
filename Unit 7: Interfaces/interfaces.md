@@ -53,4 +53,53 @@ The empty interface places no demands on the type that implements it. thus we ca
     any = new(bytes.Buffer())
 ```
 
-But now we can do nothing directly to the value it holds since an interface has no methods.
+But now we can do nothing directly to the value it holds since an interface has no methods.We will need a way to get back the value from the interface. Using type Assertion.
+
+## Interface Values
+
+Conceptually a value of an interface has two components a concrete type and a value of that type. These  values are called interfaces dynamic types and dynamic value.
+
+In Go, variables are always initialized to a well defined value. There is no exception to interfaces.
+The zero value for an interface has both its types and value components set to nil.
+
+``` golang
+
+    var w io.Writer // dynamic type is set to nil and dynamic value to nil
+    
+    w = os.Stdout   // dynamic type is *os.File and dynamic value a pointer to stdout descriptor
+    
+    w = new(bytes.Buffer) // dynamic type is *bytes.Buffer and dynamic value a pointer to the newly allocated buffer
+    
+    w = nil // sets both its components to nil
+
+```
+
+An interface value is described as nil or non-nil based on it's dynamic type.
+
+An interface value can hold large dynamic values for an instance `time.Time` which is an instance in time struct having few unexported fields.
+
+Interface values may be comparable and because of this they may be used as keys in a map.
+
+However if two interface values are compared and their dynamic type is not comparable a panic would result.
+
+``` golang
+    var x interface{} = []int{1, 3, 4}
+    fmt.Println(x == x) // Panic due to comparing slices
+```
+
+In this aspect basic types are safe for comparison and other types like functions, slices and maps are not safe for comparison in an interface.
+
+Thus when comparing interface values or aggregate types we must be aware of the potential for a panic.
+
+You may check the dynamic type of an interface using the `%T` formmatter.
+
+``` golang
+    resp, _ := http.Get("http:///google.com/")
+    fmt.Println("%T",resp.Body)
+```
+
+Internally fmt uses Reflection to know the dynamic type of the interface.
+
+## Caveat: An Interface containing a nil Pointer is Non-nil
+
+A nil interface value containing no value at all is not equal to an interface having a pointer that happens to be nil.
