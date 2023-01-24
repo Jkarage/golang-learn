@@ -5,7 +5,7 @@ Generics in Go are available since version 1.18, With generics you can create fu
 You can now write a function with a type parameter
 
 ``` golang
-    func Last[T any] (s []) {
+    func Last[T any] (s []T) {
         return s[len(s)-1]
     }
 ```
