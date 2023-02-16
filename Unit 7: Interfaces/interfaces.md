@@ -36,7 +36,7 @@ Interfaces can be embedded to generate more complex interfaces like structs embe
 The order in which methods appear is immaterial. All that matters is the set of methods.
 
 An interface with more methods gives places much demands on the type that implements it.
-Now what about an interface without any method.
+Now what about an interface without any method?
 
 ```golang
     type any interface {}
@@ -76,7 +76,7 @@ The zero value for an interface has both its types and value components set to n
 
 An interface value is described as nil or non-nil based on it's dynamic type.
 
-An interface value can hold large dynamic values for an instance `time.Time` which is an instance in time struct having few unexported fields.
+An interface value can hold large dynamic values for an instance `time.Time` which is an instance in time struct having few unexported fields. All the field values in `time.Time` will be stored in the interface value component regardless of its sizes.
 
 Interface values may be comparable and because of this they may be used as keys in a map.
 
