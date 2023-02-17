@@ -125,3 +125,34 @@ This is because an interface is said to  be nil when the dynamic type is nil, Bu
 
 In the above example, tweaking debug to false will result in panic as the Write method wont accept a nil pointer as the receiver.
 The solution for the above code is to use io.Writer type in the buf declaration.
+
+## The sort interface
+
+An in-place sorting needs three things, the length of the sequence, a means of comparing two elements, and a way to swap two elements - so they are the three methods of the sort interface.
+
+``` golang
+package sort 
+
+type Interface interface {
+    Len() int
+    Less(i, j int) bool // i and j are indices of the elements
+    Swap(i, j int)
+}
+```
+
+To sort any sequence we must define a type that implements these three different methods, then apply `sort.Sort` to an instance of that type.
+
+## The http.Handler interface
+
+``` golang
+package http
+
+type Handler interface {
+    ServeHTTP(w http.ResponseWriter, r *Request)
+}
+
+func ListenAndServe(address string, h Handler) error
+
+```
+
+The ListenAndServe function requires a server address and an instace of handler to which all requests should be dispatched. It runs forever or until an error occurs.
