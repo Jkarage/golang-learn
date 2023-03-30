@@ -5,7 +5,7 @@ Interface is an abstract type. It doesn't expose its representation or structure
 An interface type specifies a set of methods that a concrete type must posses to be considered an instance of that interface.
 
 ``` golang
-// A writer interface specifies that for a concrete type to be a writer interface it musty posses a write method with a given signature.
+// A writer interface specifies that for a concrete type to be a writer interface it must posses a write method with a given signature.
     type Writer interface {
         Write(p []byte) (len(p), error)
     }
